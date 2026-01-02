@@ -63,6 +63,20 @@
 
 ---
 
+### User Story 4 - AI Interaction via CLI (Priority: P1)
+
+A user opens their terminal and runs the `cli_app.py` application. They are prompted to enter a query for the AI. After submitting the query, they see the AI's response printed in the terminal.
+
+**Why this priority**: This is a core feature that provides a primary interface for users to interact with the AI.
+
+**Independent Test**: The CLI application can be run, and a user can successfully send a query to the AI and receive a response.
+
+**Acceptance Scenarios**:
+
+1. **Given** the application is started, **When** the user enters a query, **Then** the AI's response is displayed.
+
+---
+
 [Add more user stories as needed, each with an assigned priority]
 
 ### Edge Cases
@@ -85,11 +99,11 @@
 ### Functional Requirements
 
 - **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
+- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]
 - **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
 - **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
 - **FR-005**: System MUST [behavior, e.g., "log all security events"]
-
+- **FR-008**: System MUST provide a command-line interface (CLI) application named `cli_app.py` for user interaction with the AI.
 *Example of marking unclear requirements:*
 
 - **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]

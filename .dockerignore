@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# Frontend (not needed for backend Docker image)
+frontend/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docs
+*.md
+!README.md
+
+# Tests
+tests/
+*.test.py
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Spec kit
+.spec-kit/
+.specify/
+
+# Other
+specs/
+build_project.py

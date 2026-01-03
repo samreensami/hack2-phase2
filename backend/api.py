@@ -7,20 +7,32 @@ import jwt
 from datetime import datetime, timedelta
 from passlib.context import CryptContext
 import uvicorn
+import os
 
 app = FastAPI(title="Task Web App API")
 
-# CORS Configuration
+# CORS Configuration - Allow both local and production URLs
+ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://localhost:3005",
+    "https://*.vercel.app",  # All Vercel deployment URLs
+    os.getenv("FRONTEND_URL", ""),  # Production frontend URL from env
+]
+
+# Filter out empty strings
+ALLOWED_ORIGINS = [origin for origin in ALLOWED_ORIGINS if origin]
+
 app.add_middleware(
     CORSMiddleware,
+    allow_origin_regex=r"https://.*\.vercel\.app",  # Allow all Vercel subdomains
     allow_origins=["http://localhost:3000", "http://localhost:3005"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Security
-SECRET_KEY = "your-secret-key-change-in-production"
+# Security - Use environment variable in production
+SECRET_KEY = os.getenv("SECRET_KEY", "your-secret-key-change-in-production")
 ALGORITHM = "HS256"
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 security = HTTPBearer()

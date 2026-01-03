@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: task-app-backend
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && uvicorn api:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false  # Set manually in Render dashboard
+      - key: FRONTEND_URL
+        sync: false  # Set to your Vercel URL after frontend deployment
+      - key: PYTHON_VERSION
+        value: 3.12.0

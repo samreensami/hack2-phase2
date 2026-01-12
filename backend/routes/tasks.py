@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session, select
 from typing import List
-from ..core.database import get_session
-from ..core.security import get_current_user
-from ..models.task import Task, TaskCreate, TaskRead
+from core.database import get_session
+from core.security import get_current_user
+from models.task import Task, TaskCreate, TaskRead
 
-router = APIRouter(prefix="/tasks", tags=["tasks"])
+router = APIRouter(prefix="/dashboard/tasks", tags=["tasks"])
 
 @router.post("/", response_model=TaskRead, status_code=status.HTTP_201_CREATED)
 def create_task(
